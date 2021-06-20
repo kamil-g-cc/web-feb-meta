@@ -118,6 +118,9 @@ function onDragOverHandler(event){
 }
 
 function onDropHandler(event){
-    console.debug(event.dataTransfer.getData('plain/text'));
+    //console.debug();
+    let id = event.dataTransfer.getData('plain/text');
+    let element = document.getElementById(id);
+    event.target.append(element);
     //let test = JSON.parse(event.dataTransfer.getData('application/json'));
 }
