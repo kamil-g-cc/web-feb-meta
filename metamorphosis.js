@@ -16,7 +16,10 @@ function shuffleCards() {
 }
 
 function setDraggable(list){
-    list.forEach(function(el){
+    /*list.forEach(function(el){
         el.setAttribute("draggable", "true");
-    })
+    })*/
+    for(let i = 0; i < list.length; i++){
+        list[i].setAttribute("draggable", true);
+    }
 }
