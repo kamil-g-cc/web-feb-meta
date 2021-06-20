@@ -42,13 +42,13 @@ function setDragStartAndDragEnd(list){
 function onDragStartHandler(event){
     //console.debug(event.currentTarget+" "+event.target);
     event.target.classList.add('card-dragged');
-    //event.dataTransfer.setData('plain/text', event.target.firstElementChild.id);
+    event.dataTransfer.setData('plain/text', event.target.firstElementChild.id);
 
-    event.dataTransfer.setData('application/json', JSON.stringify({
+    /*event.dataTransfer.setData('application/json', JSON.stringify({
         id: event.target.firstElementChild.id,
         name: 'obrazek',
         extraInfo: 13
-    }));
+    }));*/
     togleActive();
 }
 
@@ -118,7 +118,6 @@ function onDragOverHandler(event){
 }
 
 function onDropHandler(event){
-    // console.debug(event.dataTransfer.getData('plain/text'));
-    let test = JSON.parse(event.dataTransfer.getData('application/json'));
-    console.debug(test);
+    console.debug(event.dataTransfer.getData('plain/text'));
+    //let test = JSON.parse(event.dataTransfer.getData('application/json'));
 }
