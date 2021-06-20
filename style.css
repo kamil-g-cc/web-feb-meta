@@ -49,6 +49,10 @@ body {
     background: #eee;
 }
 
+.card-slot-active:empty {
+    /*This only works if the tag is really empty and there is not even whitespace inside*/
+    border-color: #35cbe4;
+}
 .card {
     margin: 14px;
 }
