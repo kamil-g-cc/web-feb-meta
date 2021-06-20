@@ -43,6 +43,20 @@ function onDragEndHandler(event){
     togleActive(false);
 }
 
+/*function turnOnActive(){
+    let list = document.querySelectorAll('.card-slot');
+    list.forEach(function(el){
+        el.classList.add('card-slot-active');
+    })
+}
+
+function turnOffActive(){
+    let list = document.querySelectorAll('.card-slot');
+    list.forEach(function(el){
+        el.classList.remove('card-slot-active');
+    })
+}*/
+
 function togleActive(switchOn=true){
     //document.querySelectorAll('.metamorphosis-slots > div')
     //document.querySelectorAll('.metamorphosis-slots > div.card-slot')
