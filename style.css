@@ -49,6 +49,16 @@ body {
     background: #eee;
 }
 
+.card-slot > img {
+    /*This only works if the tag is really empty and there is not even whitespace inside*/
+    border: 4px solid #cdcdcd;
+    margin: 2px;
+    border-radius: var(--border-radius);
+    background: #eee;
+    width: 130px;
+    height: 100px;
+}
+
 .card-slot-active:empty {
     /*This only works if the tag is really empty and there is not even whitespace inside*/
     border-color: #35cbe4;
@@ -70,7 +80,12 @@ body {
     box-shadow: 0 0 0 8px #86989B;
     border-radius: var(--border-radius);
 }
-
+.card:empty {
+    display: block;
+    width: 200px;
+    box-shadow: 0 0 0 8px #86989B;
+    border-radius: var(--border-radius);
+}
 .card-dragged > img {
     /*display: block;
     width: 200px;

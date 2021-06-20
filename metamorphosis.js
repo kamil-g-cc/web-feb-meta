@@ -5,8 +5,16 @@ function initDragAndDrop() {
     setDraggable(document.querySelectorAll('.card'));
     setDragStartAndDragEnd(document.querySelectorAll('.card'));
     setDragEnterAndLeave(document.querySelectorAll('.card-slot'));
+    setDropAndDragOver(document.querySelectorAll('.card-slot'));
+    setIdsBasedOnSrc(document.querySelectorAll('div.card > img'));
     // Initialize drag & drop elements here
 
+}
+
+function setIdsBasedOnSrc(list){
+    list.forEach(function(el){
+        el.id = el.src;
+    })
 }
 
 function shuffleCards() {
@@ -34,6 +42,13 @@ function setDragStartAndDragEnd(list){
 function onDragStartHandler(event){
     //console.debug(event.currentTarget+" "+event.target);
     event.target.classList.add('card-dragged');
+    //event.dataTransfer.setData('plain/text', event.target.firstElementChild.id);
+
+    event.dataTransfer.setData('application/json', JSON.stringify({
+        id: event.target.firstElementChild.id,
+        name: 'obrazek',
+        extraInfo: 13
+    }));
     togleActive();
 }
 
@@ -82,6 +97,12 @@ function setDragEnterAndLeave(list){
     })
 }
 
+function setDropAndDragOver(list){
+    list.forEach(function(el){
+        el.addEventListener("drop", onDropHandler);
+        el.addEventListener("dragover", onDragOverHandler);
+    })
+}
 function onDragEnterHandler(event){
     //console.debug("enter " + event.target.className+" / "+event.currentTarget.className);
     event.target.classList.add('card-slot-over');
@@ -90,4 +111,14 @@ function onDragEnterHandler(event){
 function onDragLeaveHandler(event){
     //console.debug("leave " + event.target.className+" / "+event.currentTarget.className);
     event.target.classList.remove('card-slot-over');
+}
+
+function onDragOverHandler(event){
+    event.preventDefault();
+}
+
+function onDropHandler(event){
+    // console.debug(event.dataTransfer.getData('plain/text'));
+    let test = JSON.parse(event.dataTransfer.getData('application/json'));
+    console.debug(test);
 }
