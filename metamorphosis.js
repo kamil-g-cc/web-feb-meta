@@ -4,7 +4,7 @@ function initDragAndDrop() {
     shuffleCards();
     setDraggable(document.querySelectorAll('.card'));
     setDragStartAndDragEnd(document.querySelectorAll('.card'));
-
+    setDragEnterAndLeave(document.querySelectorAll('.card-slot'));
     // Initialize drag & drop elements here
 
 }
@@ -73,7 +73,7 @@ function togleActive(switchOn=true){
         })
     }
 }
-/*
+
 
 function setDragEnterAndLeave(list){
     list.forEach(function(el){
@@ -83,9 +83,11 @@ function setDragEnterAndLeave(list){
 }
 
 function onDragEnterHandler(event){
-
+    //console.debug("enter " + event.target.className+" / "+event.currentTarget.className);
+    event.target.classList.add('card-slot-over');
 }
 
 function onDragLeaveHandler(event){
-
-}*/
+    //console.debug("leave " + event.target.className+" / "+event.currentTarget.className);
+    event.target.classList.remove('card-slot-over');
+}
